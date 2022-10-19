@@ -35,7 +35,7 @@ namespace WPFHomework
             new Action(() =>
             {
                 Thread.Sleep(_seconds);
-                SimpleTextBox.Text += _num++ + " ";                
+                SimpleTextBox.Text += _num++ + " ";
             }));
         }
 
