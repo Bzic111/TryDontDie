@@ -6,7 +6,6 @@ ObjectPool<ClassicPullItem> pool = new();
 List<ClassicPullItem> list = new List<ClassicPullItem>();
 for (int i = 0; i < 10; i++)
 {
-
     list.Add(pool.Get());
     list.Add(pool.Get());
     list.Add(pool.Get());
@@ -23,17 +22,17 @@ for (int i = 0; i < 10; i++)
     }
     list.Clear();
 }
+
 list.Add(pool.Get());
 list.Add(pool.Get());
 list.Add(pool.Get());
+
 foreach (var item in list)
-{
     item.Run(CountToCount);
-}
+
 foreach (var item in list)
-{
     pool.Release(item);
-}
+
 list.Clear();
 Console.ReadKey(false);
 Console.WriteLine("End of programm");
