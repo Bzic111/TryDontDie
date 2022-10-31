@@ -1,0 +1,53 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "BHW3.1_build",
+            "command":"dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/BuilderHW3.1/BuilderHW3.1.csproj",
+                "/property:GenerateFullPath=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher":"$msCompile"
+        },
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/TryDontDie/TryDontDie.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/TryDontDie/TryDontDie.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/TryDontDie/TryDontDie.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
