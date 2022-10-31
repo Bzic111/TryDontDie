@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcurentList", "ConcurentL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroThreadPull", "MicroThreadPull\MicroThreadPull.csproj", "{6FFEC6D9-3A09-4F10-A5FC-D96CF2D32725}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderHW3.1", "BuilderHW3.1\BuilderHW3.1.csproj", "{F7193DA8-3DC4-4093-914B-C78485150A6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6FFEC6D9-3A09-4F10-A5FC-D96CF2D32725}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FFEC6D9-3A09-4F10-A5FC-D96CF2D32725}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FFEC6D9-3A09-4F10-A5FC-D96CF2D32725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7193DA8-3DC4-4093-914B-C78485150A6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7193DA8-3DC4-4093-914B-C78485150A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7193DA8-3DC4-4093-914B-C78485150A6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7193DA8-3DC4-4093-914B-C78485150A6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
