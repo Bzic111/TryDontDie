@@ -3,13 +3,70 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 
-/*
- 1. Построить три класса (базовый и 2 потомка), описывающих некоторых работников 
-с почасовой оплатой (один из потомков) и фиксированной оплатой (второй потомок).
-а) Описать в базовом классе абстрактный метод для расчёта среднемесячной заработной платы.
-Для «повременщиков» формула для расчета такова: 
-«среднемесячная заработная плата = 20.8 * 8 * почасовая ставка»,
-для работников с фиксированной оплатой
-«среднемесячная заработная плата = фиксированная месячная оплата».
- */
+public sealed class Order
+{
+    public int Id { get; set; }
+    public DateTime CreationDate { get; set; }
+    public long TotalMoney { get; set; }
+}
+public interface IOrdersRepository
+{
+    IReadOnlyList<Order> GetAll();
+}
+public interface ICalculation
+{
+    long CalculateByDate(DateTime from, DateTime To);
+}
+public sealed class Calculation : ICalculation
+{
+    private readonly IOrdersRepository _repository;
+    public Calculation(IOrdersRepository repo)
+    {
+        _repository = repo;
+    }
+    public long CalculateByDate(DateTime from, DateTime to)
+    {
+        return _repository
+                    .GetAll()
+                    .Where(x => x.CreationDate >= from && x.CreationDate <= to)
+                    .Sum(x => x.TotalMoney);
+    }
+}
 
+public sealed class Period
+{
+    public DateTime From { get; set; }
+    public DateTime To { get; set; }
+    public long Total { get; set; }
+}
+public sealed class AdvancedCalculation : ICalculation
+{
+    private readonly Calculation _calc;
+    public AdvancedCalculation(Calculation calc)
+    {
+        _calc = calc;
+    }
+    public long CalculateByDate(DateTime from, DateTime to)
+    {
+        return _calc is null ? 0 : _calc.CalculateByDate(from, to);
+    }
+    public Period CalculateByDate(Period period)
+    {
+        if (_calc is not null && period is not null)
+        {
+            period.Total = CalculateByDate(period.From, period.To);
+        }
+        return period;
+    }
+    public IEnumerator<Period> CalculateByPeriods(IEnumerable<Period> periods)
+    {
+        if (periods is null)
+        {
+            yield break;
+        }
+        foreach (var period in periods)
+        {
+            yield return CalculateByDate(period);
+        }
+    }
+}
