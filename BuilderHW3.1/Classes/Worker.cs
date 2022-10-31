@@ -1,3 +1,4 @@
+using BuilderForWorker.Interfaces;
 namespace BuilderForWorker.Classes;
 
 public abstract class Worker

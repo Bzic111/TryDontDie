@@ -6,6 +6,7 @@
     <RootNamespace>BuilderHW3._1</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>BuilderForWorker</RootNamespace>
   </PropertyGroup>
 
 </Project>

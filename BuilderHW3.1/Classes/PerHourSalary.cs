@@ -1,6 +1,6 @@
+using BuilderForWorker.Interfaces;
+
 namespace BuilderForWorker.Classes;
-
-
 public class PerHourSalary : ISalary
 {
     public decimal BaseSalary { get; set; }

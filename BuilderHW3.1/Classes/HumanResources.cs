@@ -1,6 +1,4 @@
 namespace BuilderForWorker.Classes;
-
-
 public class HumanResources
 {
     private static int Counter = 1;
